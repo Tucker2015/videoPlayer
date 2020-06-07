@@ -1,17 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import Videojs from './video.js';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const videoJsOptions = {
+  autoplay: false,
+  playbackRates: [0.5, 1, 1.25, 1.5, 2],
+  width: 720,
+  height: 300,
+  controls: true,
+  sources: [
+    {
+      src: '//live.ktinternet.net/mbr/hls/mbr.m3u8',
+      type: 'application/x-mpegURL',
+    },
+  ],
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const App = () =>
+  <div>
+    <Videojs {...videoJsOptions} />
+  </div>;
+
+render(<App />, document.getElementById('root'));

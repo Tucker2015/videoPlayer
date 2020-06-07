@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Web App Video Player Test
+          Kevin Tucker
         </a>
       </header>
     </div>
