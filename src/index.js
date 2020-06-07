@@ -1,24 +1,37 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Videojs from './video.js';
+import './index.css';
+import 'videojs-errors';
+
+
+
+ 
+
 
 const videoJsOptions = {
-  autoplay: false,
-  playbackRates: [0.5, 1, 1.25, 1.5, 2],
-  width: 720,
+  autoplay: true,
+  width: 600,
   height: 300,
+  fluid_: false,
   controls: true,
+  image: './logo.png',
+  poster: './poster.jpg',
   sources: [
     {
-      src: '//live.ktinternet.net/mbr/hls/mbr.m3u8',
+      src: 'https://live.ktinternet.net/mbr/hls/mbr.m3u8',
       type: 'application/x-mpegURL',
     },
   ],
 };
 
 const App = () =>
-  <div>
+<div className="frame">
+  <p>Test</p>
+  <div >
     <Videojs {...videoJsOptions} />
-  </div>;
-
+  </div>
+  <script src="videojs.errors.js"></script>
+  <link href="videojs.errors.css" rel="stylesheet"></link>
+  </div>
 render(<App />, document.getElementById('root'));
